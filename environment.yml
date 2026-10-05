@@ -1,0 +1,43 @@
+# Starter environment for the study described in interpreting-PLMs.MD.
+# InterPLM's setup.py does not declare its runtime dependencies, so list them here.
+name: interpreting-plms
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11
+  - pip>=24
+  - git
+  - pip:
+      # ESM-2 inference and pretrained sparse autoencoders.
+      # Editable installation retains InterPLM's YAML model configurations.
+      - "-e git+https://github.com/ElanaPearl/InterPLM.git@5f4cbf90a0b3c1c031951ffd0b3b8e11b6f2ed61#egg=interplm"
+      - torch==2.8.0
+      - transformers>=4.57.1,<5
+      - fair-esm==2.0.0
+      - huggingface-hub>=0.34,<1
+      - einops>=0.8,<0.9
+      - h5py>=3.12,<4
+      - pyyaml>=6,<7
+      # Imported by InterPLM's SAE configuration loader; no account is required.
+      - wandb>=0.19,<1
+
+      # Sequence handling, data analysis, and evaluation.
+      - biopython>=1.84,<2
+      - numpy>=2.2,<2.3
+      - scipy>=1.14,<2
+      - pandas>=2.2,<3
+      - scikit-learn>=1.5,<2
+      - tqdm>=4.67,<5
+
+      # UniProt/literature downloads, PDF extraction, and simple BM25 retrieval.
+      # scikit-learn also supports TF-IDF retrieval for the small document corpus.
+      - requests>=2.32,<3
+      - pypdf>=5,<7
+      - rank-bm25==0.2.2
+
+      # Reproducible notebooks and feature-activation plots.
+      - jupyterlab>=4,<5
+      - ipykernel>=6,<7
+      - matplotlib>=3.10,<4
+      - seaborn>=0.13,<0.14
