@@ -11,9 +11,13 @@ dependencies:
   - pip:
       # ESM-2 inference and pretrained sparse autoencoders.
       # Editable installation retains InterPLM's YAML model configurations.
+      # Browser URL: https://github.com/ElanaPearl/InterPLM
+      # The git+ URL below is pip installation syntax, not a browser link.
       - "-e git+https://github.com/ElanaPearl/InterPLM.git@5f4cbf90a0b3c1c031951ffd0b3b8e11b6f2ed61#egg=interplm"
-      - torch==2.8.0
-      - transformers>=4.57.1,<5
+      # PyTorch 2.2.2 is the last pip release supporting macOS x86_64.
+      - "torch==2.2.2; sys_platform == 'darwin' and platform_machine == 'x86_64'"
+      - "torch==2.8.0; sys_platform != 'darwin' or platform_machine != 'x86_64'"
+      - transformers==4.57.1
       - fair-esm==2.0.0
       - huggingface-hub>=0.34,<1
       - einops>=0.8,<0.9
@@ -24,7 +28,8 @@ dependencies:
 
       # Sequence handling, data analysis, and evaluation.
       - biopython>=1.84,<2
-      - numpy>=2.2,<2.3
+      # PyTorch 2.2's NumPy bridge requires NumPy 1.x.
+      - numpy==1.26.4
       - scipy>=1.14,<2
       - pandas>=2.2,<3
       - scikit-learn>=1.5,<2
