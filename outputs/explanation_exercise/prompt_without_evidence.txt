@@ -1,0 +1,19 @@
+The attached plot shows one sparse autoencoder (SAE) feature's
+activations for a protein sequence, using ESM-2-8M layer 4,
+feature ID 5712. Residue positions start at 1.
+
+Sequence (150 residues):
+MYGKIIFVLLLSEIVSISALSTTEVAMHTSTSSSVTKSYISSQTNDTHKRDTYAATPRAHEVSEISVRTVYPPEEETGERVQLAHHFSEPEITLIIFGVMAGVIGTILLISYGIRRLIKKSPSDVKPLPSPDTDVPLSSVEIENPETSDQ
+
+Describe where the feature activates strongly and weakly.
+What biological property, if any, might this feature respond to?
+
+Separate direct observations from hypotheses. Explain what the
+available information cannot establish and suggest one way to test
+your interpretation across additional proteins.
+
+If a source is supplied below, cite it where relevant.
+Do not browse or invent references. Keep your answer under 200 words.
+
+Sources:
+None supplied.
