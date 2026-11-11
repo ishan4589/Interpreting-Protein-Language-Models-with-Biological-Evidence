@@ -1,8 +1,93 @@
-"""Sequence retrieval and activation summaries for the protein analysis notebooks."""
+"""Sequence retrieval, saved analysis data, and protein activation summaries."""
+
+from datetime import datetime, timezone
+import hashlib
+import json
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import requests
+
+
+def _validate_analysis_data(sequences, embeddings, activations, model_settings):
+    """Check that protein identities and array dimensions agree before reuse."""
+    if not sequences or set(sequences) != set(embeddings) or set(sequences) != set(activations):
+        raise ValueError("Sequences, embeddings, and activations must contain the same proteins.")
+    for accession, sequence in sequences.items():
+        if not isinstance(accession, str) or not isinstance(sequence, str) or not sequence:
+            raise ValueError("Each protein must have an accession and a non-empty sequence string.")
+        for name, arrays, width in (
+            ("embeddings", embeddings, model_settings["embedding_dim"]),
+            ("activations", activations, model_settings["sae_dict_size"]),
+        ):
+            array = arrays[accession]
+            if not isinstance(array, np.ndarray) or not np.issubdtype(array.dtype, np.floating):
+                raise TypeError(f"{accession}: {name} must be a floating-point NumPy array.")
+            if array.shape != (len(sequence), width):
+                raise ValueError(f"{accession}: {name} shape does not match its sequence/model settings.")
+            if not np.isfinite(array).all():
+                raise ValueError(f"{accession}: {name} contain NaN or infinite values.")
+
+
+def save_analysis(
+    path,
+    *,
+    amino_acid_dict,
+    embeddings_by_protein,
+    activations_by_protein,
+    model_settings,
+):
+    """Save sequences, full-precision arrays, and metadata in a compressed NPZ archive."""
+    _validate_analysis_data(
+        amino_acid_dict, embeddings_by_protein, activations_by_protein, model_settings,
+    )
+    path = Path(path)
+    if path.suffix != ".npz":
+        raise ValueError("Please use a .npz filename.")
+
+    metadata = {
+        "format_version": 1,
+        "saved_at_utc": datetime.now(timezone.utc).isoformat(),
+        "accessions": list(amino_acid_dict),
+        "model_settings": model_settings,
+        "sequence_sources": {
+            accession: {
+                "url": f"https://rest.uniprot.org/uniprotkb/{accession}.json",
+                "sha256": hashlib.sha256(sequence.encode("utf-8")).hexdigest(),
+                "retrieved_at_utc": None,  # Not retained by the original downloader.
+            }
+            for accession, sequence in amino_acid_dict.items()
+        },
+    }
+    arrays = {"metadata_json": np.array(json.dumps(metadata))}
+    for accession, sequence in amino_acid_dict.items():
+        arrays[f"{accession}_sequence"] = np.array(list(sequence), dtype="U1")
+        arrays[f"{accession}_embeddings"] = embeddings_by_protein[accession]
+        arrays[f"{accession}_activations"] = activations_by_protein[accession]
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(path, **arrays)
+    return path
+
+
+def load_analysis(path):
+    """Return sequence, embedding, activation dictionaries and metadata from an NPZ archive."""
+    with np.load(path, allow_pickle=False) as archive:
+        metadata = json.loads(archive["metadata_json"].item())
+        if metadata["format_version"] != 1:
+            raise ValueError("Unsupported analysis archive format.")
+        sequences, embeddings, activations = {}, {}, {}
+        for accession in metadata["accessions"]:
+            sequences[accession] = "".join(archive[f"{accession}_sequence"].tolist())
+            embeddings[accession] = archive[f"{accession}_embeddings"]
+            activations[accession] = archive[f"{accession}_activations"]
+            sequence_hash = hashlib.sha256(sequences[accession].encode("utf-8")).hexdigest()
+            if sequence_hash != metadata["sequence_sources"][accession]["sha256"]:
+                raise ValueError(f"{accession}: saved sequence does not match its recorded hash.")
+
+    _validate_analysis_data(sequences, embeddings, activations, metadata["model_settings"])
+    return sequences, embeddings, activations, metadata
 
 
 def get_amino_acid_sequence(proteins: list[str]):
