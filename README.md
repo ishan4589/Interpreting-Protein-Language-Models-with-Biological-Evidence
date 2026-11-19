@@ -8,8 +8,8 @@ This project's contributions are the protein comparisons, analysis helpers, plot
 and preliminary evidence-assisted explanation exercise. The protein language model
 and SAEs are pretrained resources from the authors credited below. Feature
 interpretations remain exploratory associations. See [the project proposal](interpreting-PLMs.MD)
-for the broader planned study; its implementation-status statement describes the
-original proposal. Note the scope may change as the project unfolds.
+for the broader study and planned evaluation. Note the scope may change as the
+project unfolds.
 
 ## Environment setup
 
