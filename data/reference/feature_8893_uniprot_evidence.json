@@ -1,0 +1,322 @@
+{
+  "format_version": 1,
+  "retrieved_on": "2026-11-17",
+  "provenance": "Extracted from the UniProt JSON responses used for the original feature-8893 membrane-overlap plot. The sequence, entryAudit, and all Transmembrane feature objects are copied unchanged. Other entry fields and feature types are omitted. The original retrieval retained the date but not HTTP response headers or an exact retrieval timestamp.",
+  "records": {
+    "P06729": {
+      "source_url": "https://rest.uniprot.org/uniprotkb/P06729.json",
+      "entry_url": "https://www.uniprot.org/uniprotkb/P06729/entry#subcellular_location",
+      "entryAudit": {
+        "firstPublicDate": "1988-01-01",
+        "lastAnnotationUpdateDate": "2026-11-04",
+        "lastSequenceUpdateDate": "2007-10-23",
+        "entryVersion": 248,
+        "sequenceVersion": 2
+      },
+      "sequence": {
+        "value": "MSFPCKFVASFLLIFNVSSKGAVSKEITNALETWGALGQDINLDIPSFQMSDDIDDIKWEKTSDKKKIAQFRKEKETFKEKDTYKLFKNGTLKIKHLKTDDQDIYKVSIYDTKGKNVLEKIFDLKIQERVSKPKISWTCINTTLTCEVMNGTDPELNLYQDGKHLKLSQRVITHKWTTSLSAKFKCTAGNKVSKESSVEPVSCPEKGLDIYLIIGICGGGSLLMVFVALLVFYITKRKKQRSRRNDEELETRAHRVATEERGRKPHQIPASTPQNPATSQHPPPPPGHRSQAPSHRPPPPGHRVQHQPQKRPPAPSGTQVHQQKGPPLPRPRVQPKPPHGAAENSLSPSSN",
+        "length": 351,
+        "molWeight": 39448,
+        "crc64": "A03D853C3B618917",
+        "md5": "FC09A16399B6A30723D437A22FB64AA7"
+      },
+      "features": [
+        {
+          "type": "Transmembrane",
+          "location": {
+            "start": {
+              "value": 210,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 235,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Helical",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000255"
+            }
+          ]
+        }
+      ]
+    },
+    "P26678": {
+      "source_url": "https://rest.uniprot.org/uniprotkb/P26678.json",
+      "entry_url": "https://www.uniprot.org/uniprotkb/P26678/entry#subcellular_location",
+      "entryAudit": {
+        "firstPublicDate": "1992-08-01",
+        "lastAnnotationUpdateDate": "2026-11-04",
+        "lastSequenceUpdateDate": "1992-08-01",
+        "entryVersion": 223,
+        "sequenceVersion": 1
+      },
+      "sequence": {
+        "value": "MEKVQYLTRSAIRRASTIEMPQQARQKLQNLFINFCLILICLLLICIIVMLL",
+        "length": 52,
+        "molWeight": 6109,
+        "crc64": "0766304A76A854D3",
+        "md5": "A3F614EA96DE99E7879CE2227B2CB6FF"
+      },
+      "features": [
+        {
+          "type": "Transmembrane",
+          "location": {
+            "start": {
+              "value": 32,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 52,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Helical",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000305"
+            }
+          ]
+        }
+      ]
+    },
+    "P02945": {
+      "source_url": "https://rest.uniprot.org/uniprotkb/P02945.json",
+      "entry_url": "https://www.uniprot.org/uniprotkb/P02945/entry#subcellular_location",
+      "entryAudit": {
+        "firstPublicDate": "1986-07-21",
+        "lastAnnotationUpdateDate": "2026-11-04",
+        "lastSequenceUpdateDate": "1989-07-01",
+        "entryVersion": 217,
+        "sequenceVersion": 2
+      },
+      "sequence": {
+        "value": "MLELLPTAVEGVSQAQITGRPEWIWLALGTALMGLGTLYFLVKGMGVSDPDAKKFYAITTLVPAIAFTMYLSMLLGYGLTMVPFGGEQNPIYWARYADWLFTTPLLLLDLALLVDADQGTILALVGADGIMIGTGLVGALTKVYSYRFVWWAISTAAMLYILYVLFFGFTSKAESMRPEVASTFKVLRNVTVVLWSAYPVVWLIGSEGAGIVPLNIETLLFMVLDVSAKVGFGLILLRSRAIFGEAEAPEPSAGDGAAATSD",
+        "length": 262,
+        "molWeight": 28256,
+        "crc64": "38AC8A364C8C7F21",
+        "md5": "451A82D14DE3B830780BE078F4334FC8"
+      },
+      "features": [
+        {
+          "type": "Transmembrane",
+          "location": {
+            "start": {
+              "value": 23,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 42,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Helical; Name=Helix A",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "10452895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "28008064"
+            },
+            {
+              "evidenceCode": "ECO:0007744",
+              "source": "PDB",
+              "id": "1C3W"
+            }
+          ]
+        },
+        {
+          "type": "Transmembrane",
+          "location": {
+            "start": {
+              "value": 57,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 75,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Helical; Name=Helix B",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "10452895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "28008064"
+            },
+            {
+              "evidenceCode": "ECO:0007744",
+              "source": "PDB",
+              "id": "1C3W"
+            }
+          ]
+        },
+        {
+          "type": "Transmembrane",
+          "location": {
+            "start": {
+              "value": 93,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 109,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Helical; Name=Helix C",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "10452895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "28008064"
+            },
+            {
+              "evidenceCode": "ECO:0007744",
+              "source": "PDB",
+              "id": "1C3W"
+            }
+          ]
+        },
+        {
+          "type": "Transmembrane",
+          "location": {
+            "start": {
+              "value": 121,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 140,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Helical; Name=Helix D",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "10452895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "28008064"
+            },
+            {
+              "evidenceCode": "ECO:0007744",
+              "source": "PDB",
+              "id": "1C3W"
+            }
+          ]
+        },
+        {
+          "type": "Transmembrane",
+          "location": {
+            "start": {
+              "value": 148,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 167,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Helical; Name=Helix E",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "10452895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "28008064"
+            },
+            {
+              "evidenceCode": "ECO:0007744",
+              "source": "PDB",
+              "id": "1C3W"
+            }
+          ]
+        },
+        {
+          "type": "Transmembrane",
+          "location": {
+            "start": {
+              "value": 186,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 204,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Helical; Name=Helix F",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "10452895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "28008064"
+            },
+            {
+              "evidenceCode": "ECO:0007744",
+              "source": "PDB",
+              "id": "1C3W"
+            }
+          ]
+        },
+        {
+          "type": "Transmembrane",
+          "location": {
+            "start": {
+              "value": 217,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 236,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Helical; Name=Helix G",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "10452895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "28008064"
+            },
+            {
+              "evidenceCode": "ECO:0007744",
+              "source": "PDB",
+              "id": "1C3W"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
