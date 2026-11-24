@@ -11,6 +11,12 @@ interpretations remain exploratory associations. See [the project proposal](inte
 for the broader study and planned evaluation. Note the scope may change as the
 project unfolds.
 
+I have aimed for the notebooks to have informative names. They are numbered in the order I made them. 
+
+I have been letting the project lead me and seeing where it takes me so far. (24 Nov, 17:56)
+
+
+
 ## Environment setup
 
 ```bash
